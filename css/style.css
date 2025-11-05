@@ -1,112 +1,100 @@
 /* css/style.css */
 
-/* --- Import Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Rubik:wght@300;400;700&display=swap');
-
-/* --- Reset & Base Styles --- */
+/* --- GENERAL RESET & BASE STYLES --- */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Model box-sizing yang lebih intuitif */
 }
 
 body {
-    font-family: 'Rubik', sans-serif; /* Font default untuk body */
+    font-family: 'Poppins', sans-serif; /* Menggunakan Poppins dari Google Fonts */
     line-height: 1.6;
-    background-color: #f4f7f6; /* Warna latar belakang umum */
     color: #333;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Pastikan body mengambil tinggi minimal 100% viewport */
+    min-height: 100vh; /* Agar footer selalu di bawah */
+    background-color: #f8f8f8;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* --- Header Styling --- */
+/* --- HEADER STYLES --- */
 #main-header {
-    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Gradien keren */
     color: white;
     padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    position: relative; /* Penting untuk posisi hamburger */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Penting untuk hamburger menu */
+    z-index: 1000; /* Pastikan header di atas konten lain */
 }
 
-#main-header .container {
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo a {
-    font-family: 'Oswald', sans-serif; /* Font khusus untuk logo */
+    font-family: 'Montserrat', sans-serif; /* Font berbeda untuk logo */
     font-size: 1.8rem;
     font-weight: 700;
     color: white;
     text-decoration: none;
     letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-.logo a:hover {
-    color: #ffd700; /* Warna kuning emas saat hover */
 }
 
-/* --- Hamburger Menu (Tanpa JS) --- */
+/* --- HAMBURGER MENU STYLES (NO JS) --- */
 .hamburger-menu {
-    /* Posisi relatif ke #main-header */
-    position: relative;
-    z-index: 1000; /* Pastikan menu di atas elemen lain */
+    position: relative; /* Container untuk tombol dan menu */
+    display: flex; /* Gunakan flex untuk rata tengah */
+    align-items: center;
 }
 
-/* Sembunyikan Checkbox */
 #menu-toggle {
-    display: none;
+    display: none; /* Sembunyikan checkbox */
 }
 
-/* Style Ikon Hamburger (3 Garis) */
 .menu-icon {
     display: block;
     cursor: pointer;
-    padding: 8px; /* Ruang klik lebih besar */
+    padding: 10px;
+    z-index: 101; /* Pastikan ikon di atas menu */
 }
 
 .menu-icon span {
     display: block;
-    width: 30px;
+    width: 28px;
     height: 3px;
     margin-bottom: 5px;
-    background: white; /* Garis putih */
+    background: white; /* Warna garis hamburger */
     border-radius: 2px;
-    transition: all 0.3s ease-in-out; /* Animasi halus */
+    transition: all 0.3s ease-in-out;
 }
 .menu-icon span:last-child {
-    margin-bottom: 0; /* Hapus margin bawah di garis terakhir */
+    margin-bottom: 0;
 }
 
-/* Style Konten Menu (Daftar Link) */
+/* Menu Content (yang tersembunyi) */
 .menu-content {
-    max-height: 0; /* Sembunyikan menu secara default */
+    max-height: 0; /* Sembunyikan menu */
     overflow: hidden;
     background: #ffffff; /* Latar belakang menu */
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     position: absolute;
+    top: calc(100% + 10px); /* Tepat di bawah header */
     right: 0;
-    top: calc(100% + 10px); /* Posisikan di bawah header dengan sedikit spasi */
     width: 220px;
-    transition: max-height 0.4s ease-in-out, opacity 0.4s ease;
-    opacity: 0; /* Awalnya tidak terlihat */
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
     pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
 }
 
 .menu-content ul {
     list-style: none;
     padding: 10px 0;
-    margin: 0;
 }
 
 .menu-content li a {
@@ -114,97 +102,53 @@ body {
     padding: 12px 20px;
     text-decoration: none;
     color: #333;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
+
 .menu-content li a:hover {
-    background-color: #e0f2f7; /* Latar belakang item saat hover */
+    background-color: #f0f0f0;
     color: #2575fc;
 }
 
-/* --- SIHIR CSS: Tampilkan Menu Saat Checkbox di-check --- */
+/* KETIKA checkbox di-check: tampilkan menu & animasi ikon */
 #menu-toggle:checked ~ .menu-content {
-    max-height: 400px; /* Cukup tinggi untuk menampung menu */
-    opacity: 1; /* Tampilkan */
-    pointer-events: auto; /* Aktifkan interaksi */
+    max-height: 300px; /* Cukup besar untuk menampilkan menu */
+    opacity: 1;
+    pointer-events: auto; /* Aktifkan interaksi saat terlihat */
 }
 
-/* --- (Opsional Keren) Animasi ikon Hamburger jadi 'X' --- */
 #menu-toggle:checked + .menu-icon span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
+    background: #ffcc00; /* Warna ikon X */
 }
 #menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
 }
 #menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -8px);
+    background: #ffcc00; /* Warna ikon X */
 }
 
-/* --- Main Content (Iframe) --- */
+/* --- MAIN CONTENT (IFRAME) --- */
 main {
-    flex-grow: 1; /* Iframe akan mengisi semua ruang sisa */
-    display: flex; /* Memungkinkan iframe untuk mengisi tinggi penuh */
-    overflow: hidden; /* Sembunyikan scrollbar jika iframe tidak perlu scroll */
-    padding: 20px; /* Beri sedikit padding di sekitar iframe */
-    background-color: #ffffff;
-    border-radius: 8px;
-    margin: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    flex-grow: 1; /* Mengisi sisa ruang vertikal */
+    border: none;
+    background-color: #fff;
 }
 
 iframe#portfolio-frame {
     width: 100%;
     height: 100%;
-    border: none; /* Hapus border default iframe */
-    background-color: transparent; /* Pastikan latar belakang iframe transparan */
+    border: none;
 }
 
-/* --- Footer Styling --- */
+/* --- FOOTER STYLES --- */
 #main-footer {
     background: #333;
-    color: #ccc;
+    color: white;
     text-align: center;
     padding: 20px 0;
     font-size: 0.9rem;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-}
-
-/* --- Responsive Design (Optional, tapi sangat disarankan) --- */
-@media (min-width: 768px) {
-    /* Untuk layar lebih besar dari 768px, hamburger menu tidak perlu */
-    .hamburger-menu {
-        display: none; /* Sembunyikan hamburger menu */
-    }
-    
-    /* Tampilkan navigasi biasa untuk desktop/tablet */
-    #main-header .container::after { /* Clearfix untuk float jika pakai */
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    #main-header nav.desktop-nav { /* Kita bisa tambahkan nav desktop terpisah */
-        display: block;
-        float: right;
-    }
-    #main-header nav.desktop-nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    #main-header nav.desktop-nav li {
-        display: inline-block;
-        margin-left: 20px;
-    }
-    
-    #main-header nav.desktop-nav a {
-        color: white;
-        text-decoration: none;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-    }
-    #main-header nav.desktop-nav a:hover {
-        color: #ffd700;
-    }
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
