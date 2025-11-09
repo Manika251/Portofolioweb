@@ -1,49 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelompok Kreatif - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Portofolio Kelompok M2N</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header id="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">Kelompok MALA</a>
-            </div>
-
-            <div class="hamburger-menu">
-                <input id="menu-toggle" type="checkbox" />
-                
-                <label class="menu-icon" for="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                
-                <nav class="menu-content">
-                    <ul>
-                        <li><a href="pages/manika.html" target="portfolio-frame">Manika</a></li>
-                        <li><a href="pages/naya.html" target="portfolio-frame">Naya</a></li>
-                        <li><a href="pages/mala.html" target="portfolio-frame">Mala</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <header id="header-placeholder"></header>
 
     <main>
-        <iframe id="portfolio-frame" name="portfolio-frame" src="pages/manika.html">
-            Browser Anda tidak mendukung iframe.
-        </iframe>
+        
+        <section id="hero-index">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Selamat Datang di Portofolio M2N</h1>
+                    <p>
+                        Kami adalah Manika, Mala, dan Naya, sekelompok individu bersemangat yang berkolaborasi dalam berbagai proyek inovatif. Jelajahi keahlian dan karya kami di bawah ini.
+                    </p>
+                    <a href="#members" class="btn btn-primary">Lihat Anggota Kami</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="members">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="accent-line"></span>
+                    <h4>Anggota Kelompok</h4>
+                </div>
+                <h2>Kenali Kami Lebih Dekat</h2>
+                
+                <div class="members-grid">
+                    
+                    <a href="manika.html" class="member-card">
+                        <img src="https://via.placeholder.com/400x400?text=Foto+Manika" alt="Foto Manika">
+                        <h3>Sri Djohor Manika</h3>
+                        <p>Web Developer & Network Engineer</p>
+                        <span class="view-profile">Lihat Profil <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="mala.html" class="member-card">
+                        <img src="https://via.placeholder.com/400x400?text=Foto+Mala" alt="Foto Mala">
+                        <h3>Mala Sari Dewi</h3>
+                        <p>UI/UX Designer & Content Creator</p>
+                        <span class="view-profile">Lihat Profil <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="naya.html" class="member-card">
+                        <img src="https://via.placeholder.com/400x400?text=Foto+Naya" alt="Foto Naya">
+                        <h3>Naya Putri</h3>
+                        <p>Project Manager & Data Analyst</p>
+                        <span class="view-profile">Lihat Profil <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container text-center">
+                <h2>Tertarik untuk Berkolaborasi?</h2>
+                <p>Kami selalu terbuka untuk ide-ide baru dan proyek menarik.</p>
+                <a href="#contact" class="btn btn-primary">Hubungi Kami</a>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="container text-center">
+                <h2>Kontak Grup</h2>
+                <p>Anda bisa menghubungi kami melalui form di halaman individu, atau melalui info kontak grup di footer.</p>
+            </div>
+        </section>
+
     </main>
 
-    <footer id="main-footer">
-        <p>&copy; 2025 - Kelompok Kreatif. Hak Cipta Dilindungi.</p>
-    </footer>
+    <footer id="footer-placeholder"></footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

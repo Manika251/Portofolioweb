@@ -1,0 +1,189 @@
+<style>
+/* ======== STYLE KHUSUS HEADER ======== */
+
+/* * Penting: Atur font di sini agar header konsisten, 
+ * meskipun font di halaman utama berbeda.
+ */
+#header-placeholder {
+    /* Hardcode font-family untuk memastikan konsistensi */
+    font-family: 'Montserrat', sans-serif; 
+    background: #FFFFFF;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Kontainer agar rapi */
+#header-placeholder .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Bagian Merek: Logo + Nama */
+#header-placeholder .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#header-placeholder .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #2A4E4B; /* Hardcode Hijau Tua */
+    text-decoration: none;
+}
+
+#header-placeholder .group-name {
+    font-weight: 600;
+    color: #555; /* Hardcode Abu-abu */
+    font-size: 1.1rem;
+}
+
+/* Bagian Link Navigasi */
+#header-placeholder .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+#header-placeholder .nav-links ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 2rem;
+}
+
+#header-placeholder .nav-links ul li a {
+    color: #555;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#header-placeholder .nav-links ul li a:hover {
+    color: #2A4E4B;
+}
+
+/* Tombol "Hubungi Kami" di Nav */
+#header-placeholder .nav-contact-btn {
+    padding: 8px 20px;
+    border: 2px solid #EAEAEA;
+    font-weight: 600;
+    border-radius: 50px;
+    color: #222;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+#header-placeholder .nav-contact-btn:hover {
+    background: #FDE74C; /* Hardcode Kuning */
+    color: #222;
+    border-color: #FDE74C;
+}
+
+/* Tombol Hamburger (Default Tersembunyi di Desktop) */
+#header-placeholder .hamburger-menu {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1010; 
+}
+
+#header-placeholder .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #222;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* ======== RESPONSIVE (MEDIA QUERY) ======== */
+@media (max-width: 900px) {
+    /* Sembunyikan nama grup */
+    #header-placeholder .group-name {
+        display: none;
+    }
+
+    /* Tampilkan tombol hamburger */
+    #header-placeholder .hamburger-menu {
+        display: block;
+    }
+
+    /* Sembunyikan navigasi desktop */
+    #header-placeholder .nav-links {
+        display: none; 
+        position: absolute;
+        top: 73px; /* Tinggi header Anda */
+        left: 0;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        flex-direction: column; 
+        padding: 1rem;
+    }
+
+    /* Style saat menu hamburger AKTIF */
+    #header-placeholder .nav-links.active {
+        display: flex; 
+    }
+
+    #header-placeholder .nav-links ul {
+        flex-direction: column; 
+        gap: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    #header-placeholder .nav-contact-btn {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Animasi tombol hamburger (jadi X) */
+    #header-placeholder .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    #header-placeholder .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    #header-placeholder .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+</style>
+
+<nav class="container">
+    <div class="brand">
+        <a href="index.html" class="logo">M2N</a>
+        <span class="group-name">Manika Mala Naya</span>
+    </div>
+
+    <button class="hamburger-menu" id="hamburger-button" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+        <ul>
+            <li><a href="manika.html">Manika</a></li>
+            <li><a href="naya.html">Naya</a></li>
+            <li><a href="mala.html">Mala</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-outline nav-contact-btn">Hubungi Kami</a>
+    </div>
+</nav>
