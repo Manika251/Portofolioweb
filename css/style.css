@@ -10,10 +10,7 @@
     --shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* * CATATAN: Ini adalah style GLOBAL. 
- * Naya dan Mala juga harus memanggil file ini di halaman mereka,
- * DITAMBAH file CSS khusus mereka sendiri (misal: manika.css).
-*/
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--bg-white);
