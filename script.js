@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ===================================================
-// KODE TAMBAHAN UNTUK SLIDESHOW FOTO DI BAGIAN ABOUT
+// Manika
 // ===================================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Atur interval waktu untuk mengganti slide (misalnya, setiap 4 detik)
         // 4000 milidetik = 4 detik
-        setInterval(nextSlide, 4000); 
+        setInterval(nextSlide, 2000); 
     }
 
     // *** Kode Slideshow Berakhir Di Sini ***
