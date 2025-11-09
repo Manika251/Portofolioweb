@@ -175,17 +175,20 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
+
 .accent-blob {
     position: absolute;
-    width: 100%;
-    height: 90%;
+    width: 100%; 
+    height: 100%; 
+    max-width: 550px; /* Batasi ukuran maksimal blob */
+    max-height: 5500px; /* Batasi ukuran maksimal blob */
     background: var(--accent-color);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     z-index: 1;
     opacity: 0.9;
     animation: blob-morph 10s infinite linear; 
+    aspect-ratio: 1 / 1; /* Menjaga proporsi blob */
 }
 
 @keyframes blob-morph {
@@ -194,14 +197,39 @@ section {
     100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
-.profile-pic {
-    position: relative;
+/* KONTROL SLIDESHOW GAMBAR */
+.profile-slideshow {
+    position: relative; 
+    width: 85%; /* Mengontrol lebar foto relatif terhadap kotak grid */
+    max-width: 420px; /* Mengontrol lebar maksimum foto */
+    aspect-ratio: 1 / 1.3; /* Rasio tinggi-lebar foto (Potret) */
     z-index: 2; 
-    width: 90%; 
-    object-fit: cover;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
     border-radius: 15px; 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Penting agar gambar tidak keluar bingkai */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
 }
+
+/* manika.css - KONTROL SLIDESHOW GAMBAR (sekitar baris 190) */
+.profile-pic {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* <--- UBAH/PASTIKAN INI ADALAH 'cover' */
+    border-radius: 15px; 
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+}
+
+.profile-pic.active-pic {
+    opacity: 1; /* Gambar yang ditampilkan */
+}
+
+/* --- (Akhir Bagian 2) --- */
 
 /* ======== 3. EXPERIENCE (BACKGROUND HIJAU PUCAT) ======== */
 .experience-grid {
