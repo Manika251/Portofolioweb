@@ -197,9 +197,9 @@ section {
 }
 
 .member-card img {
-    width: 10000%;
+    width: 100%;
     height: 250px;
-    object-fit: cover; /* PERUBAHAN: cover → contain */
+    object-fit: cover;
     display: block;
     margin-bottom: 1.5rem;
 }
@@ -233,6 +233,63 @@ section {
     transition: transform 0.3s ease;
 }
 
+/* ======== 4. CONTACT SECTION (Untuk index.html) - CSS BARU ======== */
+
+/* Untuk memposisikan section-heading di tengah pada section contact */
+#contact .justify-center {
+    justify-content: center;
+}
+
+#contact h2 {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Memposisikan ikon di tengah */
+    gap: 15px; /* Jarak antar ikon */
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px; /* Ukuran lingkaran */
+    height: 55px;
+    border-radius: 50%; /* Membuat ikon berbentuk lingkaran */
+    font-size: 24px;
+    color: var(--bg-white); /* Warna ikon putih */
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+}
+
+/* Hover Effect */
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Warna Latar Belakang Spesifik */
+.social-icon.instagram {
+    background: #E1306C; /* Instagram Color */
+}
+
+.social-icon.whatsapp {
+    background: #25D366; /* WhatsApp Color */
+}
+
+.social-icon.linkedin {
+    background: #0A66C2; /* LinkedIn Color */
+}
+
+.social-icon.email {
+    background: var(--primary-color); /* Menggunakan warna utama portofolio */
+}
+
 /* ======== RESPONSIVE ======== */
 @media (max-width: 900px) {
     #hero-index h1 {
@@ -258,4 +315,10 @@ section {
     }
     h2 { font-size: 2rem; }
     section { padding: 60px 0; }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
 }
