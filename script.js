@@ -55,9 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
 // ===================================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Pastikan DOM sudah dimuat sebelum menjalankan script
-
-    // *** Kode Slideshow Mulai Di Sini ***
+    
+    // *** Kode Slideshow  ***
 
     const slideshowWrapper = document.querySelector('.profile-slideshow');
 
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Atur interval waktu untuk mengganti slide (misalnya, setiap 4 detik)
         // 4000 milidetik = 4 detik
-        setInterval(nextSlide, 2000); 
+        setInterval(nextSlide, 1000); 
     }
 
     // *** Kode Slideshow Berakhir Di Sini ***
